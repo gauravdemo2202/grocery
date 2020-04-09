@@ -1,10 +1,10 @@
 sudo: required
 services:
   - docker
-  - docker build -t grocery_online/grocery .
+  - docker build -t gaurav2202/grocery .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   # Take those images and push them to docker hub
-  - docker push grocery_online/grocery
+  - docker push gaurav2202/grocery
 
 deploy:
   provider: elasticbeanstalk
