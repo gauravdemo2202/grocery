@@ -1,0 +1,12 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "grocery",
+      "image": "gaurav2202/grocery",
+      "hostname": "grocery",
+      "essential": false,
+      "memory": 128
+    }
+  ]
+}
