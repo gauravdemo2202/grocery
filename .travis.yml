@@ -1,0 +1,20 @@
+sudo: required
+services:
+  - docker
+  - docker build -t grocery_online/grocery .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push grocery_online/grocery
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: grocery_online
+  env: GroceryOnline-env
+  bucket_name: elasticbeanstalk-ap-south-1-308343909687
+  bucket_path: grocery_online
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
